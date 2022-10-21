@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  web:
+    image: sample-nodejs:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+  grype:
+    container_name: grype
+    image: anchore/grype:latest
+    #command: "sample-nodejs:latest --fail-on medium"
+    command: "sample-nodejs:latest"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
