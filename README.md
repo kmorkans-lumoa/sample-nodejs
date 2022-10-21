@@ -5,4 +5,4 @@
 5. Added grype to test the running image.
    As this is CI/CD and not a developer maching both services stop after grype finished scan and if there are no errors image is "pushed" to a remote registry.
    Changing `command: "sample-nodejs:latest"` to `#command: "sample-nodejs:latest --fail-on critical"` will fail make grype to exit with exit code 1 and image is not "pushed" to a remote registry.
-6. Use `make up` to start
+6. Requirements: `docker, docker compose and make`. Use `make up` to start
